@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+    background-color: beige;
+}
+
+#headersection{
+    padding: 5px;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#dropbox{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#loginbutton{
+    padding: 10px;
+    border-radius: 5px;
+    background-color:red;
+}

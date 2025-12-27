@@ -1,0 +1,47 @@
+<?php
+include("connect.php");
+
+$name = $_POST['name'];
+$mobile = $_POST['mobile'];
+$password = $_POST['password'];
+$cpassword = $_POST['c-password'];
+$address = $_POST['address'];
+$image =  $_FILES['photo']['name'];
+$tmp_name =$_FILES['photo']['tmp_name'];
+$role = $_POST['role'];
+
+if($password==$cpassword){
+    move_uploaded_file($tmp_name,"../uploads/$image");
+    $insert = mysqli_query($connect,"INSERT INTO user (name,mobile,address,password, photo,role,status,votes) VALUES ('$name','$mobile','$address','$password','$image','$role',0, 0)");
+    echo(log($role));
+if ($insert){
+    echo"
+<script>
+       alert('registration succesfull!');
+       window.location ='../';
+</script>
+";    
+}
+else{
+    echo'
+    <script>
+       alert("some error occured!");
+       window.location ="../routs/register.html";
+</script>
+';    
+}
+}
+  else{
+    echo'
+<script>
+       alert("password and conirm password does not match");
+       window.location ="../routes/register.html";
+</script>
+';
+
+}
+    
+    
+
+
+?>
